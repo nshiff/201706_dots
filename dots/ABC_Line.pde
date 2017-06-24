@@ -17,16 +17,18 @@ class ABC_Line {
 	}
 	
 	void toScreen(){
-		this.x += delta;
-		this.y += delta;
-		if(this.x > width){
-			this.x = 0;
+		for(int i=0; i<DOTS_PER_FRAME; i++){
+			this.x += delta;
+			this.y += delta;
+			if(this.x > width){
+				this.x = 0;
+			}
+			if(this.y > height){
+				this.y = 0;
+			}
+			stroke(lineColor);
+			point(this.x, this.y);
 		}
-		if(this.y > height){
-			this.y = 0;
-		}
-		stroke(lineColor);
-		point(this.x, this.y);
 	}
 	  
 }
