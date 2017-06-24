@@ -4,22 +4,24 @@ class ABC_Line {
 	private int y0;
 	private int x;
 	private int y;
-	private int delta;
+	private int dx;
+	private int dy;
 	private color lineColor;
 	
-	ABC_Line(int x0, int y0, int delta, color lineColor) {
+	ABC_Line(int x0, int y0, int dx, int dy, color lineColor) {
 		this.x0 = x0;
 		this.y0 = y0;
 		this.x = x0;
 		this.y = y0;
-		this.delta = delta;
+		this.dx = dx;
+		this.dy = dy;
 		this.lineColor = lineColor;
 	}
 	
 	void toScreen(){
 		for(int i=0; i<DOTS_PER_FRAME; i++){
-			this.x += delta;
-			this.y += delta;
+			this.x += this.dx;
+			this.y += this.dy;
 			if(this.x > width){
 				this.x = 0;
 			}
